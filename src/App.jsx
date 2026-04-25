@@ -1,3 +1,51 @@
+import * as styles from "./Main.module.scss";
+import clsx from "clsx";
+
 export default function App() {
-    return <h1>Continue?</h1>;
+    const showContinueBtn = true;
+    const showResponse = true;
+
+    return (
+        <main className={styles.game}>
+            <div id="screen" className={clsx(
+                styles.screen,
+                styles.fadeIn,
+            )}>
+                {/*<div className="progress" id="progress">Question 1 of 6</div>*/}
+
+                {/* This will be the 'questions' component */}
+                <h2 className={styles.question} id="question">
+                    Loading questionable question...
+                </h2>
+
+                {/* This will be the 'responses' component */}
+                <p
+                    className={clsx(
+                        styles.response,
+                        showResponse && styles.show,
+                    )}
+                    id="response"
+                >
+                    Test Response Here
+                </p>
+
+                {/* This will be its own component as there will be different types of questions */}
+                <div className={styles.choices} id="choices">
+                    <button>Yes</button>
+                    <button className={styles.secondary}>No</button>
+                </div>
+
+                <button
+                    id="nextButton"
+                    className={clsx(
+                        styles.nextButton,
+                        showContinueBtn && styles.show,
+                    )}
+                >
+                    Continue, apparently
+                </button>
+            </div>
+            <div className={styles.footerNote}>There is definitely an ending. Probably. Maybe.</div>
+        </main>
+    );
 }

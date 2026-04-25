@@ -20,8 +20,27 @@ module.exports = {
                 use: "babel-loader",
             },
             {
-                test: /\.css$/,
-                use: ["style-loader", "css-loader"],
+                test: /\.module\.scss$/,
+                use: [
+                    "style-loader",
+                    {
+                        loader: "css-loader",
+                        options: {
+                            modules: {
+                                localIdentName:
+                                    process.env.NODE_ENV === "production"
+                                        ? "[hash:base64]"
+                                        : "[name]__[local]--[hash:base64:5]",
+                            },
+                        },
+                    },
+                    "sass-loader",
+                ],
+            },
+            {
+                test: /\.scss$/,
+                exclude: /\.module\.scss$/,
+                use: ["style-loader", "css-loader", "sass-loader"],
             },
         ],
     },

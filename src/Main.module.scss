@@ -1,0 +1,125 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #252942, #10111a 55%, #07080d);
+  color: #f4f4f7;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  overflow: hidden;
+}
+
+.game {
+  width: min(720px, 100%);
+  min-height: 430px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 28px;
+  padding: 42px;
+  box-shadow: 0 28px 80px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(14px);
+  position: relative;
+
+  .screen {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 450ms ease, transform 450ms ease;
+
+    &.fadeOut {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+
+    &.fadeIn {
+      animation: fadeIn 520ms ease both;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  }
+
+  .question {
+    font-size: clamp(1.7rem, 4vw, 3.2rem);
+    line-height: 1.08;
+    margin: 0 0 26px;
+  }
+
+  .choices {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+  }
+
+  .response {
+    min-height: 74px;
+    color: #d7dbf2;
+    font-size: 1.12rem;
+    line-height: 1.55;
+    margin: 0 0 28px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 300ms ease, transform 300ms ease;
+
+    &.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  button {
+    border: 0;
+    border-radius: 999px;
+    padding: 15px 18px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #11131d;
+    background: #f8f1a6;
+    cursor: pointer;
+    transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    box-shadow: 0 10px 24px rgba(248, 241, 166, 0.2);
+
+    &.secondary {
+      background: #d5dcff;
+      box-shadow: 0 10px 24px rgba(213, 220, 255, 0.18);
+    }
+
+    &.danger {
+      background: #ffb3b3;
+    }
+  }
+
+  button:hover {
+    transform: translateY(-2px);
+    background: #fff7bb;
+    box-shadow: 0 14px 30px rgba(248, 241, 166, 0.28);
+  }
+
+  .nextButton {
+    display: none;
+    margin-top: 8px;
+    width: 100%;
+
+    &.show {
+      display: block;
+    }
+  }
+
+  .footerNote {
+    position: absolute;
+    left: 42px;
+    right: 42px;
+    bottom: 22px;
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.38);
+  }
+}
