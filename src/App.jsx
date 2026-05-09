@@ -1,9 +1,14 @@
 import * as styles from "./Main.module.scss";
 import clsx from "clsx";
+import {get} from 'lodash';
+import { useGameStore } from "./store/GameStore";
 
 export default function App() {
+    const { state, dispatch } = useGameStore();
     const showContinueBtn = true;
     const showResponse = true;
+
+    console.log('state', get(state, 'whatsYourName'));
 
     return (
         <main className={styles.game}>

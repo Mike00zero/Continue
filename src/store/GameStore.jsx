@@ -1,13 +1,10 @@
 // src/store/GameStore.jsx
 import { createContext, useContext, useReducer } from "react";
+import gameQuestions from "./gameQuestionsStore.json";
 
 const GameContext = createContext(null);
 
-const initialState = {
-    currentQuestion: 0,
-    score: 0,
-    answers: [],
-};
+const initialState = gameQuestions;
 
 function gameReducer(state, action) {
     switch (action.type) {

@@ -1,0 +1,27 @@
+{
+  "whatsYourName": {
+    "step": 1,
+    "questionType": "textBox",
+    "questions": [
+      {
+        "text": "Lets start off easy, what is your name?",
+        "nextQuestionKey": "lightOrDarkBackground"
+      }
+    ]
+  },
+  "lightOrDarkBackground": {
+    "step": 2,
+    "questionType": "multipleChoice",
+    "response": "Dont' worry...you can change this later on.",
+    "questions": [
+      {
+        "text": "Light?",
+        "nextQuestionKey": ""
+      },
+      {
+        "text": "Dark?",
+        "nextQuestionKey": ""
+      }
+    ]
+  }
+}
