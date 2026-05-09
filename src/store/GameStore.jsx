@@ -1,10 +1,13 @@
 // src/store/GameStore.jsx
-import { createContext, useContext, useReducer } from "react";
-import gameQuestions from "./gameQuestionsStore.json";
-
+import { createContext, useContext, useReducer } from 'react';
+import {questions} from './gameQuestionsStore';
 const GameContext = createContext(null);
 
-const initialState = gameQuestions;
+const initialState = {
+    questions,
+    nextQuestionKey: 'whatsYourName', //TODO: We will need to update this to check for localstorage on page load
+    playAttempts: 1, // TODO: Update to handle localstorage
+};
 
 function gameReducer(state, action) {
     switch (action.type) {
@@ -17,6 +20,12 @@ function gameReducer(state, action) {
 
         case "RESET_GAME":
             return initialState;
+
+        case "SET_QUESTION_KEY":
+            return {
+                ...state,
+                nextQuestionKey: state.nextQuestionKey,
+            }
 
         default:
             return state;

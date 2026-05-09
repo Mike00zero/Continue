@@ -1,0 +1,2 @@
+export const TEXTBOX = 'TEXTBOX';
+export const MULTIPLE_CHOICE = 'MULTIPLE_CHOICE';

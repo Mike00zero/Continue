@@ -1,14 +1,18 @@
-import * as styles from "./Main.module.scss";
-import clsx from "clsx";
+import * as styles from './styles/Main.module.scss';
+import clsx from 'clsx';
 import {get} from 'lodash';
-import { useGameStore } from "./store/GameStore";
+import { useGameStore } from './store/GameStore';
+import { questionTypeMapper } from './helpers/questionTypeMapper';
 
 export default function App() {
     const { state, dispatch } = useGameStore();
     const showContinueBtn = true;
     const showResponse = true;
+    const questionTypeKey = get(state, `questions.${state.nextQuestionKey}.questionType`);
+    const currentQuestionProps = get(state, `questions.${state.nextQuestionKey}`);
+    const question = questionTypeMapper(currentQuestionProps);
 
-    console.log('state', get(state, 'whatsYourName'));
+    console.log('state', state);
 
     return (
         <main className={styles.game}>
@@ -18,10 +22,7 @@ export default function App() {
             )}>
                 {/*<div className="progress" id="progress">Question 1 of 6</div>*/}
 
-                {/* This will be the 'questions' component */}
-                <h2 className={styles.question} id="question">
-                    Loading questionable question...
-                </h2>
+                {question[questionTypeKey]}
 
                 {/* This will be the 'responses' component */}
                 <p
