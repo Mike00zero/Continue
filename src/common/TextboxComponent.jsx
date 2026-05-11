@@ -3,8 +3,6 @@ import * as styles from '/src/styles/Textbox.module.scss';
 import { TitleComponent } from './TitleComponent';
 
 export const TextboxComponent = (props) => {
-    console.log('props', props);
-
     return (
         <div className="textbox">
             <TitleComponent {...props} />
@@ -15,6 +13,7 @@ export const TextboxComponent = (props) => {
                     id="playerAnswer"
                     className={styles.textbox}
                     placeholder={props?.textboxPlaceholderText}
+                    onChange={props.onChange}
                 />
             </div>
         </div>

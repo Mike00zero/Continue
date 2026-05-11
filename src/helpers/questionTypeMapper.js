@@ -1,10 +1,10 @@
 import * as C from '/src/constants/';
-import { TextboxComponent } from '/src/components/textboxComponent';
-import { MultipleChoice } from '/src/components/MultipleChoice';
+import { WhatsYourNameComponent } from '/src/components/WhatsYourNameComponent';
+import { MultipleChoice } from '/src/common/MultipleChoice';
 
 export const questionTypeMapper = (props = {}) => {
     return {
-        [C.TEXTBOX]: <TextboxComponent {...props} />,
+        [C.WHATS_YOUR_NAME]: <WhatsYourNameComponent {...props} />,
         [C.MULTIPLE_CHOICE]: <MultipleChoice {...props} />,
     }
 }

@@ -2,29 +2,38 @@
 import { createContext, useContext, useReducer } from 'react';
 import {questions} from './gameQuestionsStore';
 const GameContext = createContext(null);
+import * as C from '/src/constants/';
 
 const initialState = {
     questions,
     nextQuestionKey: 'whatsYourName', //TODO: We will need to update this to check for localstorage on page load
     playAttempts: 1, // TODO: Update to handle localstorage
+    playerName: '',
+    bgColor: '#000',
 };
 
 function gameReducer(state, action) {
     switch (action.type) {
-        case "ANSWER_QUESTION":
+        case C.ANSWER_QUESTION:
             return {
                 ...state,
                 answers: [...state.answers, action.payload],
                 currentQuestion: state.currentQuestion + 1,
             };
 
-        case "RESET_GAME":
+        case C.RESET_GAME:
             return initialState;
 
-        case "SET_QUESTION_KEY":
+        case C.SET_QUESTION_KEY:
             return {
                 ...state,
                 nextQuestionKey: state.nextQuestionKey,
+            }
+
+        case C.SET_PLAYER_NAME:
+            return {
+                ...state,
+                playerName: state.playerName,
             }
 
         default:

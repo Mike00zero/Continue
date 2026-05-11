@@ -3,9 +3,9 @@ import * as C from '/src/constants/';
 export const questions = {
   "whatsYourName": {
     "step": 1,
-    "questionType": C.TEXTBOX,
+    "questionType": C.WHATS_YOUR_NAME,
     "questionTitle": "Lets start off easy...What is your name?",
-    "textboxPlaceholderText": "Type something profound... or just lie.",
+    "textboxPlaceholderText": "Type your name... or something profound... or just lie.",
     "questions": [
       {
         "nextQuestionKey": "lightOrDarkBackground"
