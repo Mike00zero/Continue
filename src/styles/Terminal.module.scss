@@ -1,0 +1,43 @@
+.terminal {
+  border: 1px solid #b9b9b9;
+  border-radius: 0 0 10px 10px;
+  color: #53b236;
+  height: 150px;
+  margin: 50px 0;
+  padding: 27px 15px;
+  position: relative;
+  width: 94%;
+
+  &__header {
+    height: 30px;
+    width: 100%;
+    background-color: #2a2a28;
+    display: flex;
+    position: absolute;
+    top: -25px;
+    left: -1px;
+    border: 1px solid #b9b9b9;
+    border-bottom: 0;
+    border-radius: 10px 10px 0 0;
+  }
+
+  &__headerBtns {
+    border-radius: 50%;
+    height: 12px;
+    margin-top: 10px;
+    margin-left: 12px;
+    width: 12px;
+
+    &.red {
+      background: red;
+    }
+
+    &.yellow {
+      background: yellow;
+    }
+
+    &.green {
+      background: green;
+    }
+  }
+}
